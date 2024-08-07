@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhor Idade</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #020055;
+            display: flex;
+            width: 100%;
+            height: 70px;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 0%;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-title img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-family:  "Poppins", sans-serif;
+            font-weight: bold;
+            color: #FFF;
+        }
+
+        .pesquise {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            max-width: 500px;
+            margin: 0 4.5% 0 0%;
+        }
+
+        .pesquise-1 {
+            width: 100%;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 35px;
+            padding: 10px;
+            padding-right: 40px;
+            font-size: 1rem;
+            border-radius: 12px;
+            border: 1px solid #fffdfd;
+            box-sizing: border-box;
+        }
+
+        .pesquise-1::after {
+            content: "";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 23px;
+            height: 23px;
+            background-image: url(img/lupa\ \(1\).png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .mp {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-button {
+            display: flex;
+            align-items: center;
+            background-color: #2a6ebb;
+            color: #FFF;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-image: url(img/user\ \(1\).png);
+            background-repeat: no-repeat;
+            background-position: left 8px center;
+            background-size: 20px;
+            padding-left: 40px;
+        }
+
+        .subtitulo {
+            display: flex;
+            background-color: #252392;
+            width: 100%;
+            height: 72px;
+            gap: 25%;
+            align-items: center;
+        }
+
+        .img-group {
+            display: flex;
+            align-items: center;
+            padding-left: 2%;
+        }
+
+        .texto-subtitulo {
+            display: flex;    
+            align-items: center;
+            gap: 15%;
+            padding-left: 0%;
+            color: white;
+            font-size: 1.7rem;
+        }
+
+        .container-1 {
+            display: flex;
+            width: 100%;
+            height: 310px;
+            
+        }
+
+        .img-frame {
+            position: relative;
+            width: 100%;
+            max-width: 1349px;
+        }
+
+        .img-frame img {
+            width: 100%;
+            height: 310px;
+        }
+
+        .img-frame p {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            width: 80%;
+            text-align: start;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2%;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+            padding: 0 0%;
+        }
+        .cards{
+            display: flex;
+            gap: 4%;
+            margin: 0 0%;
+            padding: 0 0%;
+        }
+
+        .img-container {
+            position: relative;
+            width: calc(25% - 2%);
+            min-width: 265px;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 215px;
+            z-index: 1;
+            border-radius: 7px;
+        }
+
+        .img-container .text {
+            position: absolute;
+            bottom: 0;
+            left: 30%;
+            transform: translateX(-50%);
+            color: #333;
+            font-size: 1.2rem;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.925);
+            width: 80%;
+            height: 22%;
+            max-width: 250px;
+            text-align: center;
+            padding: 5px 0;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        .container-2 {
+            display: flex;
+            background-color: #393939;
+            width: 100%;
+            height: 320px;
+            justify-content: center;
+        }
+
+        .informacao {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 2%;
+        }
+
+        .subcontainer {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin-top: 35px;
+        }
+
+        .subcontainer img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-marca {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-marca-2 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-marca-2 img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .subcontainer-1 h1,
+        .subcontainer-2 h1 {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 12px;
+            margin-bottom: 5px;
+        }
+
+        .subcontainer-1 h2,
+        .subcontainer-2 h2 {
+            color: #00CAD7;
+            font-size: 1.2rem;
+            margin: 0 0 0 5px;
+        }
+
+        .subcontainer-1 p,
+        .subcontainer-2 p {
+            color: white;
+            margin: 6px 0 0 5px;
+        }
+
+        .subcontainer-2 h1 {
+            color: #00CAD7;
+        }
+
+        footer {
+            display: flex;
+            width: 100%;
+            height: 30px;
+            justify-content: space-evenly;
+            background-color: black;
+            color: white;
+            align-items: center;
+        }
+
+        footer h1 {
+            font-size: 1rem;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="logo-title">
+            <img src="img/logologin.png" alt="logo">
+            <div class="title">Melhor Idade</div>
+        </div>
+
+        <div class="pesquise">
+            <div class="pesquise-1">
+                <input type="text" class="search-input" id="text" name="pesquise" placeholder="Pesquise aqui">
+            </div>
+        </div>
+
+        <div class="mp">
+            <button class="profile-button" type="submit">Meu Perfil</button>
+        </div>
+    </header>
+    <div class="subtitulo">
+        <div class="img-group">
+            <img src="img/Group 68.png" alt="grup">
+        </div>
+        <div class="texto-subtitulo">
+            <p>Inicío</p>
+            <p>Notícias</p>
+            <p>Dicas</p>
+            <p>Questionário</p>
+        </div>
+    </div>
+    <div class="container-1">
+        <div class="img-frame">
+            <img src="img/image 116.png" alt="img-frame">
+            <p>Cada dia é uma nova oportunidade para ser a melhor versão de si mesmo.</p>
+        </div>
+    </div>
+    <main>
+        <div class="cards">
+        <div class="img-container">
+            <img src="img/StockCake-Elderly woman stretching_1721670716.jpg" alt="imagem1">
+            <div class="text">
+                <p>Alongamentos</p>
+            </div>
+        </div>
+        <div class="img-container">
+            <img src="img/StockCake-Strategic Game Setup_1721670713.jpg" alt="imagem2">
+            <div class="text">
+                <p>Jogos</p>
+            </div>
+        </div>
+        <div class="img-container">
+            <img src="img/StockCake-Sunny Study Desk_1721670708.jpg" alt="imagem3">
+            <div class="text">
+                <p>Cursos</p>
+            </div>
+        </div>
+        <div class="img-container">
+            <img src="img/StockCake-Speaker Addresses Audience_1721670705.jpg" alt="imagem4">
+            <div class="text">
+                <p>Fórum</p>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <div class="container-2">
+        <div class="informacao">
+            <div class="subcontainer subcontainer-1">
+                <div class="logo-marca">
+                    <img src="img/logo-melhor-idade-removebg-preview(2).png" alt="logo">
+                    <h1>Melhor Idade</h1>
+                </div>
+                <div class="text-group">
+                    <h2>Tem dúvida? Nós contate:</h2>
+                    <p>+55 86 97400-8256</p>
+                    <h2>Informação de contato:</h2>
+                    <p>melhoridade@gmail.com</p>
+                </div>
+                <div class="logo-marca-2">
+                    <img src="img/instagram (1).png" alt="instagram">
+                    <h1>melhoridadephb</h1>
+                </div>
+            </div>
+            <div class="subcontainer subcontainer-2">
+                <div class="text-group">
+                    <h1>Informações</h1>
+                    <p>Sobre nós</p>
+                    <p>Nós contate</p>
+                    <p>FACs</p>
+                    <p>Política e Privacidade</p>
+                    <p>Termos e condições</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h1>© 2024 Melhor Idade</h1>
+        <p>Designer criado por: Sofia Khrisla Santos Rocha</p>
+        <p>Desenvolvido por: Gabriel Mazulo</p>
+    </footer>
+    <script>
+        document.getElementById('btn-sair').addEventListener('click', function () {
+            window.location.href = './index.html';
+        });
+    </script>
+</body>
+
+</html>
