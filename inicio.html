@@ -8,12 +8,15 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+
         body {
             font-family: "Poppins", sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
             display: flex;
             flex-direction: column;
+            height: 100%;
+            min-height: 100vh;
         }
 
         header {
@@ -23,11 +26,12 @@
             height: 70px;
             align-items: center;
             justify-content: space-around;
-            padding: 0 0%;
+            padding: 0 0px;
         }
 
         .logo-title {
             display: flex;
+
             align-items: center;
         }
 
@@ -39,17 +43,17 @@
 
         .title {
             font-size: 1.5rem;
-            font-family:  "Poppins", sans-serif;
+            font-family: "Poppins", sans-serif;
             font-weight: bold;
             color: #FFF;
         }
 
         .pesquise {
             display: flex;
+            margin-right: 35px;
             align-items: center;
             flex: 1;
             max-width: 500px;
-            margin: 0 4.5% 0 0%;
         }
 
         .pesquise-1 {
@@ -85,6 +89,7 @@
         .mp {
             display: flex;
             align-items: center;
+            position: relative;
         }
 
         .profile-button {
@@ -110,19 +115,19 @@
             height: 72px;
             gap: 25%;
             align-items: center;
+            padding: 0 0px;
         }
 
         .img-group {
             display: flex;
+            margin-left: 26px;
             align-items: center;
-            padding-left: 2%;
         }
 
         .texto-subtitulo {
-            display: flex;    
+            display: flex;
             align-items: center;
             gap: 15%;
-            padding-left: 0%;
             color: white;
             font-size: 1.7rem;
         }
@@ -131,18 +136,18 @@
             display: flex;
             width: 100%;
             height: 310px;
-            
+            overflow: hidden;
         }
 
         .img-frame {
             position: relative;
             width: 100%;
-            max-width: 1349px;
         }
 
         .img-frame img {
             width: 100%;
             height: 310px;
+            object-fit: cover;
         }
 
         .img-frame p {
@@ -161,23 +166,30 @@
         main {
             display: flex;
             flex-wrap: wrap;
+            flex-direction: row;
             gap: 2%;
             justify-content: center;
             width: 100%;
             margin-top: 20px;
-            padding: 0 0%;
-        }
-        .cards{
-            display: flex;
-            gap: 4%;
-            margin: 0 0%;
-            padding: 0 0%;
+            padding: 0 0px;
         }
 
+        .cards {
+            display: flex;
+            flex-direction: row;
+            gap: 8%;
+            flex-wrap: wrap;
+            /* Permite a quebra de linha para cards em excessão */
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Cada cartão ocupa 25% do espaço disponível */
         .img-container {
             position: relative;
             width: calc(25% - 2%);
             min-width: 265px;
+            margin-bottom: 20px;
         }
 
         .img-container img {
@@ -185,12 +197,13 @@
             height: 215px;
             z-index: 1;
             border-radius: 7px;
+            object-fit: cover;
         }
 
         .img-container .text {
             position: absolute;
             bottom: 0;
-            left: 30%;
+            left: 50%;
             transform: translateX(-50%);
             color: #333;
             font-size: 1.2rem;
@@ -201,7 +214,6 @@
             max-width: 250px;
             text-align: center;
             padding: 5px 0;
-            margin-bottom: 20px;
             border-radius: 6px;
         }
 
@@ -209,17 +221,17 @@
             display: flex;
             background-color: #393939;
             width: 100%;
-            height: 320px;
+            height: 280px;
             justify-content: center;
+            padding: 0px 0px;
         }
 
         .informacao {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: space-between;
             width: 100%;
-            max-width: 1200px;
-            padding: 0 2%;
+            max-width: 1349px;
         }
 
         .subcontainer {
@@ -239,11 +251,13 @@
             align-items: center;
             gap: 15px;
         }
+
         .logo-marca-2 {
             display: flex;
             align-items: center;
             gap: 15px;
         }
+
         .logo-marca-2 img {
             width: 30px;
             height: 30px;
@@ -282,22 +296,219 @@
         footer {
             display: flex;
             width: 100%;
-            height: 30px;
+            height: auto;
+            gap: 4.5%;
             justify-content: space-evenly;
             background-color: black;
             color: white;
             align-items: center;
+            margin: 0;
+            padding: 10px 0;
+            flex-wrap: wrap;
+            text-align: center;
         }
 
-        footer h1 {
-            font-size: 1rem;
-        }
-
+        footer h1,
         footer p {
+            margin: 0;
             font-size: 1rem;
+        }
+
+        .perfil-infor {
+            display: none;
+            opacity: 0;
+            width: 290px;
+
+            height: auto;
+            background-color: white;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            z-index: 100;
+            border: 2px solid #041be9;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(-20px);
+            overflow: hidden;
+            /* Adicione isto para esconder conteúdo fora da área visível */
+        }
+
+        .perfil-infor.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-perfil {
+            display: flex;
+            align-items: center;
+            gap: 3%;
+            color: white;
+            border-top-left-radius: 13px;
+            border-top-right-radius: 13px;
+            background-color: #504DDD;
+            padding: 10px;
+        }
+
+        .text-perfil img {
+            width: 50px;
+            height: 50px;
+            margin-left: 5px;
+            border-radius: 50%;
+        }
+
+        .dados {
+            display: flex;
+            font-size: 18px;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .dados p {
+            display: flex;
+            margin: 5px 0;
+        }
+
+        .dados-pessoais {
+            display: flex;
+            padding: 5px 15px;
+            flex-direction: column;
+        }
+
+        .dados-pessoais h1 {
+            margin: 4% 0;
+            font-size: 20px;
+            color: #252392;
+            cursor: pointer;
+        }
+
+        .dados-pessoais h3 {
+            margin: 4% 0;
+            font-size: 20px;
+        }
+
+        .btn-sair {
+            display: flex;
+            align-items: center;
+            padding-left: 9px;
+            height: 40px;
+            gap: 3%;
+        }
+
+        .btn-sair img {
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+        }
+
+        .btn-sair a {
+            font-size: 25px;
+            text-decoration: none;
+            /* Remove a linha azul embaixo do link */
+            color: inherit;
+            /* Mantém a cor atual do texto */
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .cards {
+                flex-direction: column;
+                /* Em telas menores, os cartões serão exibidos em coluna */
+                gap: 10px;
+                /* Ajusta o espaço entre os cartões */
+            }
+
+            .img-container {
+                width: 100%;
+                /* Faz com que os cartões ocupem toda a largura disponível */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .img-container {
+                width: 100%;
+                /* Em telas ainda menores, os cartões ocupam toda a largura disponível */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .subtitulo {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .texto-subtitulo {
+                gap: 10%;
+                font-size: 1.2rem;
+                padding: 0;
+            }
+
+            .container-1 {
+                height: auto;
+            }
+
+            .informacao {
+                height: auto;
+            }
+
+            .img-container {
+                width: calc(50% - 2%);
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .perfil-infor {
+                width: 80%;
+                max-width: 300px;
+                top: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .perfil-infor {
+                width: 320px;
+                top: 60px;
+                right: 10px;
+                /* Adicione algum padding para evitar que o perfil se sobreponha à borda da tela */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .perfil-infor {
+                width: 280px;
+                top: 50px;
+                right: 5px;
+                /* Ajuste o padding para telas menores */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.2rem;
+            }
+
+            .search-input {
+                font-size: 0.9rem;
+            }
+
+            .texto-subtitulo {
+                font-size: 1rem;
+            }
+
+            .img-container {
+                width: 100%;
+            }
+
+            footer {
+                font-size: 0.9rem;
+            }
+
         }
     </style>
-
 </head>
 
 <body>
@@ -314,12 +525,33 @@
         </div>
 
         <div class="mp">
-            <button class="profile-button" type="submit">Meu Perfil</button>
+            <button id="perfil" class="profile-button">Meu Perfil</button>
+            <div id="perfil-infor" class="perfil-infor">
+                <div class="text-perfil">
+                    <img src="img/images (2) 1.png" alt="foto-perfil">
+                    <div class="dados">
+                        <p>Maria Ferreira da Silva</p>
+                        <p>87 Anos</p>
+                    </div>
+                </div>
+                <div class="dados-pessoais">
+                    <h3>CPF: 802.484.650-07</h3>
+                    <h1>COMORBIDADES</h1>
+                    <h1>REMÉDIOS</h1>
+                    <h1>RESTRIÇÕES</h1>
+                    <h1>HISTÓRICO DE VACINAÇÃO</h1>
+                </div>
+                <div class="btn-sair">
+                    <img src="img/sair (2).png" alt="sair.png">
+                    <a href="index.html">Sair</a>
+                </div>
+            </div>
         </div>
     </header>
+
     <div class="subtitulo">
         <div class="img-group">
-            <img src="img/Group 68.png" alt="grup">
+            <img src="img/Group 68.png" alt="img1">
         </div>
         <div class="texto-subtitulo">
             <p>Inicío</p>
@@ -336,31 +568,26 @@
     </div>
     <main>
         <div class="cards">
-        <div class="img-container">
-            <img src="img/StockCake-Elderly woman stretching_1721670716.jpg" alt="imagem1">
-            <div class="text">
-                <p>Alongamentos</p>
+            <div class="img-container">
+                <img src="img/StockCake-Elderly woman stretching_1721670716.jpg" alt="imagem1">
+                <div class="text">
+                    <p>Alongamentos</p>
+                </div>
             </div>
-        </div>
-        <div class="img-container">
-            <img src="img/StockCake-Strategic Game Setup_1721670713.jpg" alt="imagem2">
-            <div class="text">
-                <p>Jogos</p>
+            <div class="img-container">
+                <img src="img/StockCake-Strategic Game Setup_1721670713.jpg" alt="imagem2">
+                <div class="text">
+                    <p>Jogos</p>
+                </div>
             </div>
-        </div>
-        <div class="img-container">
-            <img src="img/StockCake-Sunny Study Desk_1721670708.jpg" alt="imagem3">
-            <div class="text">
-                <p>Cursos</p>
+            <div class="img-container">
+                <img src="img/StockCake-Sunny Study Desk_1721670708.jpg" alt="imagem3">
+                <div class="text">
+                    <p>Cursos</p>
+                </div>
             </div>
+
         </div>
-        <div class="img-container">
-            <img src="img/StockCake-Speaker Addresses Audience_1721670705.jpg" alt="imagem4">
-            <div class="text">
-                <p>Fórum</p>
-            </div>
-        </div>
-    </div>
     </main>
 
     <div class="container-2">
@@ -399,8 +626,19 @@
         <p>Desenvolvido por: Gabriel Mazulo</p>
     </footer>
     <script>
-        document.getElementById('btn-sair').addEventListener('click', function () {
-            window.location.href = './index.html';
+        document.getElementById('perfil').addEventListener('click', function () {
+            var perfilInfor = document.getElementById('perfil-infor');
+            if (perfilInfor.classList.contains('show')) {
+                perfilInfor.classList.remove('show');
+                setTimeout(function () {
+                    perfilInfor.style.display = 'none';
+                }, 600); // Duração da transição
+            } else {
+                perfilInfor.style.display = 'block';
+                setTimeout(function () {
+                    perfilInfor.classList.add('show');
+                }, 11); // Pequeno delay para permitir a aplicação da classe
+            }
         });
     </script>
 </body>
